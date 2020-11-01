@@ -1,0 +1,23 @@
+<Mavproxy command>
+mavproxy.exe --master tcp:127.0.0.1:5770 --out udp:127.0.0.1:14550 --out udp:127.0.0.1:14551
+<Dronekit-sitl command>
+dronekit-sitl copter -I1 --home=25.4949842643954,81.864902973175,0,0 
+<AirSIm command>
+Soccer_Field.exe -windowed -ResX=700 -ResY=400
+<jMAVSim Command>
+make px4_sitl_default jmavsim
+
+.\sitl\Scripts\activate
+
+dronekit-sitl ./sysid_1 --model=quad --home=25.4949842643954,81.864902973175,0,0 
+
+dronekit-sitl ./sysid_2  --model=quad  -I1 --home=25.4949842643954,81.864902973175,0,0 
+
+dronekit-sitl ./sysid_3  --model=quad  -I2 --home=25.4949842643954,81.864902973175,0,0 
+
+dronekit-sitl copter --home=25.4949842643954,81.864902973175,0,0
+mavproxy.exe --master tcp:127.0.0.1:5760 --sitl 127.0.0.1:5501 --out 127.0.0.1:14550 --out 127.0.0.1:14553
+dronekit-sitl copter -I1 --home=25.4949842643954,81.864902973175,0,0
+mavproxy.exe --master tcp:127.0.0.1:5770 --sitl 127.0.0.1:5502 --out 127.0.0.1:14551 --out 127.0.0.1:14554
+dronekit-sitl copter -I2 --home=25.4949842643954,81.864902973175,0,0
+mavproxy.exe --master tcp:127.0.0.1:5780 --sitl 127.0.0.1:5503 --out 127.0.0.1:14552 --out 127.0.0.1:14555
