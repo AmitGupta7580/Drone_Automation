@@ -21,3 +21,11 @@ Swarm of Drones makinng 2 Circle with Diff. Axis : https://youtu.be/I-IGfW63nJI<
 ### jMAVSim
 Take-off using MAVSDK : https://youtu.be/eHu5aFCIk6I<br>
 Square using Drone-Kit Sitl : https://youtu.be/GifM5dBFNbI<br>
+
+### jMAVSim setup (Windows)
+Source : https://docs.px4.io/master/en/dev_setup/dev_env_windows_cygwin.html<br>
+install PX4 using msi from https://github.com/PX4/PX4-windows-toolchain/releases <br>
+Run run-console.bat present in 'C:\PX4\' <br>
+Run `git clone --recursive -j8 https://github.com/PX4/PX4-Autopilot.git` in console <br>
+Move to `cd PX4-Autopilot` <br>
+Build and runs SITL simulation with jMAVSim to test the setup `make px4_sitl jmavsim` <br>
